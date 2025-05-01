@@ -1,7 +1,7 @@
 import { createClient } from '@libsql/client';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const url = process.env.TURSO_DB_URL;
 const authToken = process.env.TURSO_AUTH_TOKEN;
