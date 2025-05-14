@@ -13,4 +13,9 @@ form.addEventListener('submit', async (event) => {
 			'Content-Type': 'application/json'
 		}
 	})
+	if(response.ok){
+		window.location.href = '/index.html'
+	} else {
+		alert('Credenciales Inválidas')
+	}
 })

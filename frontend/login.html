@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Inicio de Sesión</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
 
-    <body>
-        <form action="" class="form-login">
-            <label for="username">Usuario</label>
-            <input type="text" name="username" />
-            <label for="password">Contraseña</label>
-            <input class="input-password" type="password" name="password" />
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-        <script src="formData.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <form action="/login" class="form-login" method="POST">
+        <label for="username">Usuario</label>
+        <input type="text" name="username" />
+        <label for="password">Contraseña</label>
+        <input class="input-password" type="password" name="password" />
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <script src="formData.js"></script>
+</body>
+
 </html>
