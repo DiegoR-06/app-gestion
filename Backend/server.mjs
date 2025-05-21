@@ -38,6 +38,7 @@ app.get('/', async (req, res) => {
       return res.sendFile(path.join(dirname, '../frontend/index.html'))
     }
   }
+
   return res.redirect('/login')
 })
 
