@@ -1,4 +1,10 @@
-import { testConnection, getUserPassword, checkToken, createToken, deleteToken } from './db.mjs'
+import {
+  testConnection,
+  getUserPassword,
+  checkToken,
+  createToken,
+  deleteToken
+} from './db.mjs'
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
@@ -13,10 +19,12 @@ const dirname = path.dirname(filename)
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}))
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+  })
+)
 app.use(express.json())
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
@@ -53,7 +61,10 @@ app.post('/login', async (req, res) => {
   }
   if (resultsMatch) {
     if (req.signedCookies.cookieWithToken) {
-      const validToken = await checkToken(username, req.signedCookies.cookieWithToken)
+      const validToken = await checkToken(
+        username,
+        req.signedCookies.cookieWithToken
+      )
       if (validToken.valid) {
         return res.redirect('/')
       }
@@ -73,7 +84,7 @@ app.post('/logout', (req, res) => {
   res.clearCookie('cookieWithToken')
   const wasDeleted = deleteToken(req.signedCookies.cookieWithToken)
   if (wasDeleted) {
-    res.redirect('/')
+    res.redirect('/login')
   } else {
     res.status(500).send('Error al eliminar el token')
   }
